@@ -1,7 +1,6 @@
 package Framework;
 
 import android.graphics.Canvas;
-import android.view.KeyEvent;
 import android.view.MotionEvent;
 
 public interface IState {
@@ -13,8 +12,7 @@ public interface IState {
 		// 지속적으로 수행할것들
 	public void Render(Canvas canvas);
 		// 그려줘야할것들
-	public boolean onKeyDown(int keyCode, KeyEvent event);
-		// 키입력처리
+
 	public boolean onTouchEvent(MotionEvent event);
 		// 터치입력처리
 	

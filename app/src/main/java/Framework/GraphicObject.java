@@ -3,17 +3,19 @@ package Framework;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 
-public class GraphicObject {
+public class GraphicObject{
 
 	protected Bitmap 	m_bitmap;
 	protected int		m_x;
 	protected int		m_y;
-
+	protected boolean mbReply=true;
+	protected boolean mbEnd=false;
 
 	public GraphicObject(Bitmap bitmap){
 		m_bitmap = bitmap;
 		m_x = 0;
 		m_y = 0;
+
 	}
 
 	public void SetPosition(int x,int y){
@@ -29,5 +31,11 @@ public class GraphicObject {
 	}
 	public int GetY(){
 		return m_y;
+	}
+	public void Update(long GameTime){
+		mbEnd=true;
+	}
+	public boolean getEnd(){
+		return mbEnd;
 	}
 }

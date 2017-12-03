@@ -3,16 +3,15 @@ package com.example.ekb2011.projectgalaga;
 import Framework.AppManager;
 
 /**
- * Created by ekb2011 on 2017-11-02.
+ * Created by ekb2011 on 2017-11-03.
  */
 
-public class Enemy_1 extends Enemy {
-    public Enemy_1(){
-        super(AppManager.getInstance().getBitmap(R.drawable.enemy_lowest));
+public class Enemy_2 extends Enemy {
+    public Enemy_2(){
+        super(AppManager.getInstance().getBitmap(R.drawable.enemy_middle));
         //this.InitSpriteData(320,90,3,6);
-
-        hp=1;
-        speed=1.5f;
+        hp=2;
+        speed=2.5f;
         movetype=Enemy.MOVE_PATTERN_2;
     }
 

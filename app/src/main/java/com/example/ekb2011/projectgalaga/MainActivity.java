@@ -1,13 +1,34 @@
 package com.example.ekb2011.projectgalaga;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
+import android.view.Window;
+import android.view.WindowManager;
 
-public class MainActivity extends AppCompatActivity {
+import Framework.AppManager;
+import Framework.GameView;
+
+/**
+ * Created by ekb2011 on 2017-11-04.
+ */
+
+public class MainActivity extends Activity {
+    public int display_width;
+    public int display_height;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        AppManager.getInstance().setActivity(this);
+        setContentView(new GameView(this));
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        System.exit(0);
     }
 }

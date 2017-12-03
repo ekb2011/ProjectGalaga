@@ -2,13 +2,11 @@ package Framework;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Color;
-import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
-import org.Game.GameState;
+import com.example.ekb2011.projectgalaga.GameState;
 
 
 public class GameView extends SurfaceView implements SurfaceHolder.Callback{
@@ -32,7 +30,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback{
     }
     @Override
       public void onDraw(Canvas canvas) {
-    	canvas.drawColor(Color.BLACK);
+		super.onDraw(canvas);
     	m_state.Render(canvas);    	
     }
 	@Override
@@ -67,12 +65,6 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback{
 	}
 
 	@Override
-	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		m_state.onKeyDown(keyCode, event);
-		return super.onKeyDown(keyCode, event);
-	}
-	
-	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 		m_state.onTouchEvent(event);
 		return true;
@@ -80,8 +72,9 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback{
 	}
 	
 	public void ChangeGameState(IState _state){
-		if(m_state!=null)
+		if(m_state!=null) {
 			m_state.Destroy();
+		}
 		_state.Init();
 		m_state = _state;
 	}

@@ -1,5 +1,6 @@
 package Framework;
 
+import android.annotation.SuppressLint;
 import android.graphics.Canvas;
 import android.view.SurfaceHolder;
 
@@ -17,6 +18,7 @@ public class GameViewThread extends Thread {
         _run = run;
     }
  
+    @SuppressLint("WrongCall")
     @Override
     public void run() {
         Canvas c;
@@ -30,7 +32,8 @@ public class GameViewThread extends Thread {
                 synchronized (_surfaceHolder) {
                 	_gameview.onDraw(c);
                 }
-            } finally {
+            }catch (Exception e){}
+            finally {
                 if (c != null) {
                     _surfaceHolder.unlockCanvasAndPost(c);
                 }
